@@ -1,0 +1,62 @@
+# キャッシュとビルド成果物
+.cache
+node_modules
+dist
+
+# データベースファイル
+/prisma/dev.sqlite
+/prisma/dev.sqlite-journal
+database.sqlite
+*.sqlite
+*.sqlite-journal
+
+# Shopify拡張機能（本番環境では不要）
+/extensions/
+
+# 環境変数ファイル
+.env
+.env.*
+
+# Shopify設定ファイル
+shopify.app.dev.toml
+shopify.web.toml
+
+# 開発ツール関連
+.git
+.vscode
+.idea
+*.log
+
+# Shopify CLI関連
+.shopify
+.shopifyignore
+
+# テスト関連
+coverage
+.nyc_output
+test-results
+playwright-report
+
+# ドキュメント
+README.md
+CHANGELOG.md
+*.md
+
+# 一時ファイル
+.DS_Store
+Thumbs.db
+*.tmp
+*.temp
+
+# 開発用スクリプト
+dbsetup.js
+update-app-name.js
+
+# ESLint設定
+.eslintrc*
+.prettierrc*
+
+# その他の設定ファイル
+.editorconfig
+fly.toml
+fly.*.toml

@@ -1,0 +1,75 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Note that some adapters may set a maximum length for the String type by default, please ensure your strings are long
+// enough when changing adapters.
+// See https://www.prisma.io/docs/orm/reference/prisma-schema-reference#string for more information
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Session {
+  id            String    @id
+  shop          String
+  state         String
+  isOnline      Boolean   @default(false)
+  scope         String?
+  expires       DateTime?
+  accessToken   String
+  userId        BigInt?
+  firstName     String?
+  lastName      String?
+  email         String?
+  accountOwner  Boolean   @default(false)
+  locale        String?
+  collaborator  Boolean?  @default(false)
+  emailVerified Boolean?  @default(false)
+  primaryDomain String?
+}
+
+model ApiKeyPair {
+  kid        String    @id
+  publicKey  String
+  privateKey String
+  createdAt  DateTime
+}
+
+model PixelNonce {
+  nonce      String   @id
+  receivedAt DateTime @default(now())
+}
+
+model YahooConversion {
+  yclid            String   @id
+  amount           Int?
+  visitedAt        DateTime?
+  conversionedAt   DateTime @default(now())
+  isProcessed      Boolean  @default(false)
+  orderId          String
+}
+
+model YahooAdApplication {
+  clientId       String   @id 
+  clientSecret   String
+  redirectUri    String
+  state          String?
+  code           String?
+  accessToken    String?
+  refreshToken   String? 
+  tokenCreatedAt DateTime?
+}
+
+model YahooAdAccount {
+  id              Int    @id
+  type            String
+  accountId       String
+  childAccountId  String
+  duration        Int
+  conversionTitle String
+}
+
