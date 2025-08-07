@@ -135,10 +135,13 @@ async function buildCorsHeaders() {
  * @param headers - レスポンスヘッダー
  * @returns エラーレスポンス
  */
-const errorResponse = (code: number, headers: Headers) => new Response(
-  JSON.stringify({ error: "不正なアクセスです", error_code: code }),
-  { status: 405, headers: headers }
-);
+const errorResponse = (code: number, headers: Headers) => {
+  console.log(`405 error occurred on setConversion. error_code: ${code}`);
+  return new Response(
+    JSON.stringify({ error: "不正なアクセスです", error_code: code }),
+    { status: 405, headers: headers }
+  );
+}
 
 /**
  * GETリクエストのハンドラー
