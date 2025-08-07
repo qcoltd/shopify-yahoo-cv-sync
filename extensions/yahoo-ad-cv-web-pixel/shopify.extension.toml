@@ -1,0 +1,25 @@
+name = "yahoo-ad-cv-web-pixel"
+type = "web_pixel_extension"
+
+runtime_context = "strict"
+
+[customer_privacy]
+analytics = false
+marketing = false
+preferences = false
+sale_of_data = "disabled"
+
+[settings]
+type = "object"
+
+[settings.fields.jwk]
+name = "jwk"
+description = "jwk"
+type = "single_line_text_field"
+validations =  []
+
+[settings.fields.api_host]
+name = "api_host"
+description = "api_host"
+type = "single_line_text_field"
+validations =  []
